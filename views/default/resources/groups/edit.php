@@ -27,4 +27,4 @@ if (!$tab || !elgg_view_exists("resources/groups/edit/$tab")) {
 	$tab = 'index';
 }
 
-echo elgg_view_resource("groups/edit/$tab", $vars);
+echo elgg_view("resources/groups/edit/$tab", $vars);

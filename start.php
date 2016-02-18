@@ -16,7 +16,7 @@ elgg_register_event_handler('init', 'system', 'group_subtypes_init');
  */
 function group_subtypes_init() {
 
-		// Search
+	// Search
 	elgg_unregister_entity_type('group', '');
 	elgg_unregister_plugin_hook_handler('search', 'group', 'search_groups_hook');
 	elgg_register_plugin_hook_handler('search', 'group', 'group_subtypes_search_hook');
@@ -78,7 +78,7 @@ function group_subtypes_init() {
 	elgg_register_action('admin/groups/subtypes/add', __DIR__ . '/actions/admin/groups/subtypes/add.php', 'admin');
 	elgg_register_action('admin/groups/subtypes/config', __DIR__ . '/actions/admin/groups/subtypes/config.php', 'admin');
 	elgg_register_action('admin/groups/subtypes/change_subtype', __DIR__ . '/actions/admin/groups/subtypes/change_subtype.php', 'admin');
-	elgg_extend_view('admin.css', 'forms/admin/groups/subtypes/config.css');
+	elgg_extend_view('css/admin', 'forms/admin/groups/subtypes/config.css');
 
 }
 
@@ -118,7 +118,7 @@ function group_subtypes_route_edit_pages($hook, $type, $return, $params) {
 	if ($page == 'add') {
 		$parent_guid = array_shift($segments);
 		$subtype = array_shift($segments);
-		echo elgg_view_resource('groups/add', array(
+		echo elgg_view('resources/groups/add', array(
 			'parent_guid' => $parent_guid,
 			'subtype' => $subtype,
 			'segments' => $segments,
@@ -129,7 +129,7 @@ function group_subtypes_route_edit_pages($hook, $type, $return, $params) {
 
 	if ($page == 'edit') {
 		$guid = array_shift($segments);
-		echo elgg_view_resource('groups/edit', array(
+		echo elgg_view('resources/groups/edit', array(
 			'guid' => $guid,
 			'segments' => $segments,
 			'identifier' => $initial_identifier,
