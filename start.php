@@ -111,6 +111,10 @@ function group_subtypes_get_config() {
  */
 function group_subtypes_route_edit_pages($hook, $type, $return, $params) {
 
+	if (!is_array($return)) {
+		return;
+	}
+	
 	$initial_identifier = elgg_extract('identifier', $params, 'groups');
 	$identifier = elgg_extract('identifier', $return);
 	$segments = elgg_extract('segments', $return);
@@ -176,6 +180,10 @@ function group_subtypes_get_identifier(ElggGroup $entity) {
  * @return array
  */
 function group_subtypes_router($hook, $type, $return, $params) {
+	if (!is_array($return)) {
+		return;
+	}
+	
 	$segments = elgg_extract('segments', $return);
 	return array(
 		'identifier' => 'groups',
